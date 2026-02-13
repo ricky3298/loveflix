@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loveflix ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:#0f0f0f;
+    font-family:'Inter', sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* 🎬 SMOOTH LOVEFLIX INTRO */
+#intro{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    animation:introFadeOut 1s ease 4.5s forwards;
+}
+
+#intro h1{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:120px;
+    letter-spacing:15px;
+    color:#e50914;
+    opacity:0;
+    animation:introFadeIn 1.5s ease forwards,
+              glowPulse 2s ease 1.5s forwards,
+              introZoomOut 2s ease 3s forwards;
+}
+
+@keyframes introFadeIn{ to{opacity:1;} }
+
+@keyframes glowPulse{
+    0%{text-shadow:0 0 10px #e50914;}
+    50%{text-shadow:0 0 40px #e50914;}
+    100%{text-shadow:0 0 20px #e50914;}
+}
+
+@keyframes introZoomOut{
+    to{ transform:scale(2.5); opacity:0; }
+}
+
+@keyframes introFadeOut{
+    to{opacity:0; visibility:hidden;}
+}
+
+/* Header */
+header{
+    padding:20px 40px;
+    font-family:'Bebas Neue', sans-serif;
+    font-size:32px;
+    color:#e50914;
+}
+
+/* Section */
+.section{
+    padding:40px;
+}
+
+/* 📖 Recap */
+.recap{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    line-height:1.8;
+}
+
+.recap h2{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:40px;
+    color:#e50914;
+}
+
+/* 🎞 Timeline */
+.timeline-wrapper{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.timeline{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+    padding:20px 0;
+}
+
+.timeline::-webkit-scrollbar{
+    display:none;
+}
+
+.card{
+    min-width:240px;
+    height:340px;
+    border-radius:6px;
+    overflow:hidden;
+    scroll-snap-align:center;
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card:hover{
+    transform:scale(1.1);
+}
+
+.card-title{
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    font-weight:600;
+}
+
+.scroll-btn{
+    position:absolute;
+    background:rgba(0,0,0,0.6);
+    border:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+    padding:10px 15px;
+    z-index:10;
+}
+
+.left{ left:0; }
+.right{ right:0; }
+
+/* 💍 Proposal */
+.proposal{
+    text-align:center;
+    padding:60px 20px;
+    position:relative;
+}
+
+.proposal h1{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:48px;
+}
+
+button{
+    padding:14px 28px;
+    border:none;
+    border-radius:4px;
+    font-size:16px;
+    margin:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.yes{
+    background:#e50914;
+    color:white;
+}
+
+.yes:hover{
+    transform:scale(1.3);
+}
+
+.no{
+    background:#333;
+    color:white;
+    position:absolute;
+}
+
+/* 🎬 Season 2 Layout */
+.season2{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    background:#000;
+    position:relative;
+    overflow:hidden;
+}
+
+.season2 img{
+    width:320px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.season2 h1{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:50px;
+    color:#e50914;
+}
+
+.season2 p{
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+/* 🎉 Confetti */
+.popper{
+    position:absolute;
+    width:10px;
+    height:10px;
+    animation:confetti 3s linear infinite;
+}
+
+@keyframes confetti{
+    0%{ transform:translateY(-20px) rotate(0deg); opacity:1; }
+    100%{ transform:translateY(100vh) rotate(360deg); opacity:0; }
+}
+
+@media(max-width:768px){
+    .card{
+        min-width:180px;
+        height:260px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎬 Intro -->
+<div id="intro">
+    <h1>LOVEFLIX</h1>
+</div>
+
+<header>LOVEFLIX</header>
+
+<!-- 📖 Recap -->
+<div class="section recap">
+    <h2>Season 1 Recap</h2>
+    <p>
+        From our first hello in March 🌸  
+        to unforgettable summer adventures ☀️  
+        and cozy winter memories ❄️,  
+        every episode brought us closer.  
+        And now… the story continues.
+    </p>
+</div>
+
+<!-- 🎞 Timeline -->
+<div class="section">
+<h2 style="font-family:'Bebas Neue';color:#e50914;">Season 1 — Our Story (March → January)</h2>
+
+<div class="timeline-wrapper">
+<button class="scroll-btn left" onclick="scrollTimeline(-1)">❮</button>
+<div class="timeline" id="timeline"></div>
+<button class="scroll-btn right" onclick="scrollTimeline(1)">❯</button>
+</div>
+</div>
+
+<!-- 💍 Proposal -->
+<div class="proposal">
+<h1>Will You Be My Valentine?</h1>
+<button class="yes" onclick="celebrate()">YES</button>
+<button class="no" id="noBtn">NO</button>
+</div>
+
+<script>
+
+/* Timeline Months */
+const months=[
+["March","images/march.jpg.jpeg"],
+["April","images/april.jpg.jpeg"],
+["May","images/may.jpg.jpeg"],
+["June","images/june.jpg.jpeg"],
+["July","images/july.jpg.jpeg"],
+["August","images/august.jpg.jpeg"],
+["September","images/september.jpg.jpeg"],
+["October","images/october.jpg.jpeg"],
+["November","images/november.jpg.jpeg"],
+["December","images/december.jpg.jpeg"],
+["January","images/janunary.jpg.jpeg"]
+];
+
+window.onload=function(){
+const container=document.getElementById("timeline");
+months.forEach(m=>{
+container.innerHTML+=`
+<div class="card">
+<img src="${m[1]}">
+<div class="card-title">${m[0]}</div>
+</div>`;
+});
+}
+
+/* Scroll */
+function scrollTimeline(direction){
+document.getElementById("timeline")
+.scrollBy({left:direction*260,behavior:'smooth'});
+}
+
+/* NO button run */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",function(){
+noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
+noBtn.style.top=Math.random()*(window.innerHeight-100)+"px";
+});
+
+/* Celebration */
+function celebrate(){
+document.body.innerHTML=`
+<div class="season2">
+<img src="images/valentine.jpg.jpeg">
+<h1>Happy Valentine's Day ❤️</h1>
+<p>Season 2 Coming Soon...</p>
+</div>
+`;
+
+for(let i=0;i<50;i++){
+    const pop=document.createElement("div");
+    pop.className="popper";
+    pop.style.left=Math.random()<0.5 ?
+        Math.random()*60+"px" :
+        (window.innerWidth - Math.random()*60)+"px";
+    pop.style.background=["gold","red","pink","white"][Math.floor(Math.random()*4)];
+    pop.style.animationDuration=(Math.random()*2+2)+"s";
+    document.body.appendChild(pop);
+}
+}
+
+</script>
+
+</body>
+</html>
+
+
